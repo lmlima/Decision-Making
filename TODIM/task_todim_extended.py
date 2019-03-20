@@ -24,12 +24,12 @@ def g2_TODIM_llamazares (self,x):
 # LLamazares' TODIM
 A = TODIM ('decisionMatrix.txt')
 A.setG(g1_TODIM_llamazares, g2_TODIM_llamazares)
-valores = A.getRCloseness(output=True)
+valores = A.getRCloseness(verbose=True)
 
 
 # Lourenzutti's TODIM
 B = TODIM ('decisionMatrix.txt')
-valoresB = B.getRCloseness(output=True)
+valoresB = B.getRCloseness(verbose=True)
 
 
 import pandas as pd

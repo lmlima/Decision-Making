@@ -232,12 +232,12 @@ class TODIM:
         else:
             return -self.g[2](self, self.weights[k]) * self.f[2](self, dij)
 
-    def getRCloseness (self, output=False, name=None):
+    def getRCloseness (self, verbose=False, name=None):
         self.getDelta()
         aux = self.delta.sum(axis=1)
         for i in range(self.nAlt):
             self.rCloseness[i] = (aux[i] - aux.min()) / (aux.max() - aux.min())
-        if output:
+        if verbose:
             return (self.rCloseness)
             
     # To plot the Alternatives' name, just pass a list of names
