@@ -7,7 +7,7 @@ In addition, it also contains the framework:
 * [A-TOPSIS](https://github.com/paaatcha/Decision-Making/tree/master/A-TOPSIS) ([more information](https://arxiv.org/abs/1610.06998))
 * [F-TODIM](https://github.com/lmlima/DecisionMaking/tree/master/FTODIM) ([more information](https://www.sciencedirect.com/science/article/pii/S0957417412006033))
 
-Fuzzy code based in [Fuzzy Numbers](http://github.com/paaatcha/fuzzy) in order to produce the Fuzzy-TODIM.
+Code based in [Fuzzy Numbers](http://github.com/paaatcha/fuzzy) in order to produce the Fuzzy-TODIM.
 
 
 All directions are given in the comments in the codes.
