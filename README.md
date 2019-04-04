@@ -16,3 +16,4 @@ If you find any bug, please, email-me.
 * NumPy
 * Matplotlib
 * Seaborn
+* Pandas
