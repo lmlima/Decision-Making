@@ -38,6 +38,9 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 from FuzzyNumber import FuzzyNumber
+
+import sys
+sys.path.append('../TODIM')
 from TODIM import TODIM
 
 class FTODIM(TODIM):
