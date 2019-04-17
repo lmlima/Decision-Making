@@ -231,11 +231,13 @@ class TODIM:
         else:
             return -self.g[2](self, self.weights[k]) * self.f[2](self, dij)
 
-    def getRCloseness (self, verbose=False, name=None):
+    # [3]'s TODIM version is nomalized, [4]'s TODIM version isn't
+    def getRCloseness (self, verbose=False, normalize=True):
         self.getDelta()
         aux = self.delta.sum(axis=1)
-        for i in range(self.nAlt):
-            self.rCloseness[i] = (aux[i] - aux.min()) / (aux.max() - aux.min())
+        if normalize:
+            for i in range(self.nAlt):
+                self.rCloseness[i] = (aux[i] - aux.min()) / (aux.max() - aux.min())
         if verbose:
             return (self.rCloseness)
             
