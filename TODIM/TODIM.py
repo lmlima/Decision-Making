@@ -40,7 +40,6 @@ from __future__ import division
 from __future__ import absolute_import
 
 import numpy as np
-import seaborn as sns
 from matplotlib import pyplot as plt
 
 
@@ -243,20 +242,19 @@ class TODIM:
     # To plot the Alternatives' name, just pass a list of names
     # To save the plot, just pass the files name on saveName
     def plotBars (self,names=None, saveName=None):        
-        sns.set_style("whitegrid")
-        if names is not None:
-            a = sns.barplot (names, self.rCloseness[:,0], palette="BuGn_d")
-        else:
-            a = sns.barplot (None, self.rCloseness[:,0], palette="BuGn_d")
-        
-        a.set_ylabel("Closeness Coeficient")
-        a.set_xlabel('Alternatives')
-        fig = a.get_figure()
-        plt.show()
-        
-        
+        label_ticks = np.arange(0,len(self.rCloseness[:,0]),1)
+
+        plt.bar(label_ticks, self.rCloseness[:,0], tick_label=names)
+
+        plt.ylabel("Closeness Coeficient")
+        plt.xlabel('Alternatives')
+        plt.xticks(label_ticks)
+
         if saveName is not None:
-            fig.savefig(saveName+'.png')
+            plt.savefig(saveName+'.png')
+
+        plt.show()
+
 
 ################################## END CLASS ####################################################
 
