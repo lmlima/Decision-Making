@@ -158,12 +158,14 @@ class TODIM:
         print ('Weights \n', self.weights)
         print ('Theta \n', self.theta)
 
-    # Normalizeing the matrixD
+    # Normalizing the matrixD
     def normalizeMatrix (self):
         m = self.matrixD.sum(axis=0)
         for i in range(self.nAlt):
             for j in range(self.nCri):
-                self.normMatrixD[i,j] = self.matrixD[i,j] / m[j]
+                # All 0's criterias won't help the decision, just ignore their normalization
+                if m[j] != 0:
+                    self.normMatrixD[i,j] = self.matrixD[i,j] / m[j]
     
         self.matrixD = self.normMatrixD
 
@@ -242,7 +244,8 @@ class TODIM:
             for i in range(self.nAlt):
                 self.rCloseness[i] = (aux[i] - aux.min()) / (aux.max() - aux.min())
         if verbose:
-            return (self.rCloseness)
+            print(self.rCloseness)
+        return (self.rCloseness)
             
     # To plot the Alternatives' name, just pass a list of names
     # To save the plot, just pass the files name on saveName
