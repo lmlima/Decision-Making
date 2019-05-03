@@ -120,8 +120,8 @@ class TODIM:
         self.rCloseness = np.zeros ([self.nAlt,1], dtype=float)
         # weight reference
         self.wref = self.weights.max()
-        # Normalize input matrix
-        self.normalizeMatrix()
+        # Normalize input matrix (temporary disabled)
+        #self.normalizeMatrix()
 
         
         # Default f and g functions definition based in [3] (equation in section 3) definition

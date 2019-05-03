@@ -76,7 +76,7 @@ class FuzzyNumber:
             return r
 
       # This method multiplies two Fuzzy Numbers by overloading the operator /
-      def __div__ (self,FN2):
+      def __truediv__ (self,FN2):
             r = FuzzyNumber()
             r.X = self.X / FN2.X
             r.pertX = self.pertX / FN2.pertX

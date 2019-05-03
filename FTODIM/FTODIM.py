@@ -37,10 +37,10 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from DecisionMaking.FTODIM import FuzzyNumber
-from DecisionMaking.TODIM import TODIM
+from DecisionMaking.FTODIM import FuzzyNumber as fn
+from DecisionMaking.TODIM import TODIM as todim
 
-class FTODIM(TODIM):
+class FTODIM(todim.TODIM):
     # FTODIM(matrixD_filename, wegihts_theta_filename)
     # FTODIM(matrixD, weights, theta)
     def __init__ (self, *args):
@@ -64,7 +64,7 @@ class FTODIM(TODIM):
             # Try to read Matrix's file
             try:
                 data_matrix = pd.read_csv(Matrix_filename, sep=";")
-                data_matrix_np = data_matrix.applymap(lambda x: FuzzyNumber( np.array( x.split(','), dtype=float ) )).to_numpy()
+                data_matrix_np = data_matrix.applymap(lambda x: fn.FuzzyNumber( np.array( x.split(','), dtype=float ) )).to_numpy()
             except IOError:
                 print ('ERROR: there is a problem with %s file. Please, check it again' % (Matrix_filename) )
                 raise IOError
@@ -73,14 +73,14 @@ class FTODIM(TODIM):
             weights = args[1]
             theta = args[2]
             # Pandas "a1, a2, a3" or "a1, a2, a3, a4" values
-            data_matrix_np = matrixD.applymap(lambda x: FuzzyNumber( np.array( x.split(','), dtype=float ) )).to_numpy()
+            data_matrix_np = matrixD.applymap(lambda x: fn.FuzzyNumber( np.array( x.split(','), dtype=float ) )).to_numpy()
 
             # Create TODIM object
             super().__init__( data_matrix_np, weights, theta )
             
             # Set fuzzy's specifics to TODIM
-            super().setDistance(FuzzyNumber.distanceHamming)
-            super().setComparison(FuzzyNumber.cmp)
+            super().setDistance(fn.FuzzyNumber.distanceHamming)
+            super().setComparison(fn.FuzzyNumber.cmp)
 
 
 
