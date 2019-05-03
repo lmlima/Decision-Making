@@ -37,11 +37,8 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from FuzzyNumber import FuzzyNumber
-
-import sys
-sys.path.append('../TODIM')
-from TODIM import TODIM
+from DecisionMaking.FTODIM import FuzzyNumber
+from DecisionMaking.TODIM import TODIM
 
 class FTODIM(TODIM):
     # FTODIM(matrixD_filename, wegihts_theta_filename)
