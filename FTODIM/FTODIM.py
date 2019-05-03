@@ -71,6 +71,12 @@ class FTODIM(TODIM):
             except IOError:
                 print ('ERROR: there is a problem with %s file. Please, check it again' % (Matrix_filename) )
                 raise IOError
+        elif nargs == 3:
+            matrixD = args[0]
+            weights = args[1]
+            theta = args[2]
+            # Pandas "a1, a2, a3" or "a1, a2, a3, a4" values
+            data_matrix_np = matrixD.applymap(lambda x: FuzzyNumber( np.array( x.split(','), dtype=float ) )).to_numpy()
 
             # Create TODIM object
             super().__init__( data_matrix_np, weights, theta )
