@@ -115,13 +115,13 @@ class TODIM:
         # Filling the remaining variables
         size = self.matrixD.shape
         [self.nAlt, self.nCri] = size
-        self.normMatrixD = np.zeros(size, dtype=float)           
+        self.normMatrixD = np.empty(size, dtype=object)           
         self.delta = np.zeros([self.nAlt, self.nCri])
         self.rCloseness = np.zeros ([self.nAlt,1], dtype=float)
         # weight reference
         self.wref = self.weights.max()
         # Normalize input matrix (temporary disabled)
-        #self.normalizeMatrix()
+        self.normalizeMatrix()
 
         
         # Default f and g functions definition based in [3] (equation in section 3) definition
