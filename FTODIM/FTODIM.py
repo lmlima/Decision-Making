@@ -75,12 +75,12 @@ class FTODIM(todim.TODIM):
             # Pandas "a1, a2, a3" or "a1, a2, a3, a4" values
             data_matrix_np = matrixD.applymap(lambda x: fn.FuzzyNumber( np.array( x.split(','), dtype=float ) )).to_numpy()
 
-            # Create TODIM object
-            super().__init__( data_matrix_np, weights, theta )
-            
-            # Set fuzzy's specifics to TODIM
-            super().setDistance(fn.FuzzyNumber.distanceHamming)
-            super().setComparison(fn.FuzzyNumber.cmp)
+        # Create TODIM object
+        super().__init__( data_matrix_np, weights, theta )
+
+        # Set fuzzy's specifics to TODIM
+        super().setDistance(fn.FuzzyNumber.distanceHamming)
+        super().setComparison(fn.FuzzyNumber.cmp)
 
 
 
