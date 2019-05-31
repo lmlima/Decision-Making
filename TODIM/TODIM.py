@@ -116,7 +116,7 @@ class TODIM:
         size = self.matrixD.shape
         [self.nAlt, self.nCri] = size
         self.normMatrixD = np.empty(size, dtype=object)           
-        self.delta = np.zeros([self.nAlt, self.nCri])
+        self.delta = np.zeros([self.nAlt, self.nAlt])
         self.rCloseness = np.zeros ([self.nAlt,1], dtype=float)
         # weight reference
         self.wref = self.weights.max()
@@ -205,7 +205,7 @@ class TODIM:
 
     def getDelta (self):
         for i in range(self.nAlt):
-            for j in range(self.nCri):
+            for j in range(self.nAlt):
                 self.delta[i,j] = self.getSumPhi(i,j)
 
                 
